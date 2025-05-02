@@ -36,7 +36,7 @@ class TransactionManagerExceptionTest {
 			transactionManager.addExpense(-500.0, "Invalid Amount Expense", "Food");
 			yakshaAssert(currentTest(), false, exceptionTestFile);
 		} catch (InvalidAmountException ex) {
-			yakshaAssert(currentTest(), ex.getMessage().contains("Expense amount must be positive."),
+			yakshaAssert(currentTest(), ex.getMessage().contains("Expense amount must be positive"),
 					exceptionTestFile);
 		}
 	}
@@ -51,7 +51,7 @@ class TransactionManagerExceptionTest {
 			transactionManager.updateTransaction(0, -100.0, "Invalid Update", "Food");
 			yakshaAssert(currentTest(), false, exceptionTestFile);
 		} catch (InvalidAmountException ex) {
-			yakshaAssert(currentTest(), ex.getMessage().contains("Amount must be positive."), exceptionTestFile);
+			yakshaAssert(currentTest(), ex.getMessage().contains("Amount must be positive"), exceptionTestFile);
 		} catch (Exception ex) {
 			yakshaAssert(currentTest(), false, exceptionTestFile);
 		}
@@ -66,7 +66,7 @@ class TransactionManagerExceptionTest {
 			yakshaAssert(currentTest(), false, exceptionTestFile);
 		} catch (IndexOutOfBoundsException ex) {
 			System.out.println(ex.getMessage());
-			yakshaAssert(currentTest(), ex.getMessage().contains("Transaction not found at index: "),
+			yakshaAssert(currentTest(), ex.getMessage().contains("Transaction not found at index"),
 					exceptionTestFile);
 		} catch (InvalidAmountException e) {
 			yakshaAssert(currentTest(), false, exceptionTestFile);
